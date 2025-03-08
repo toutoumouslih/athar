@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التفكير الإيجابي - أثر</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* أنماط خاصة بهذه الصفحة */
+        .content-section {
+            padding: 2rem 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .article-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to left, var(--color-secondary), var(--color-primary));
+            border-radius: 3px;
+        }
+        
+        .article-subtitle {
+            color: var(--color-text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .article-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content h3 {
+            margin: 2rem 0 1rem;
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+        
+        .article-content ul {
+            margin: 1rem 2rem 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .youtube-embed {
+            margin: 2rem 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+        }
+        
+        .youtube-embed iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .book-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .book-card img {
+            height: 220px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+        }
+        
+        .book-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .book-card .author {
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .key-points {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-right: 4px solid var(--color-primary);
+        }
+        
+        .key-points h3 {
+            margin-top: 0;
+        }
+        
+        .image-section {
+            margin: 2rem 0;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+        
+        .image-section img {
+            width: 100%;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.5rem 1.25rem;
+            border-radius: 9999px;
+            transition: var(--transition);
+            margin-bottom: 2rem;
+        }
+        
+        .back-button:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .icon-arrow-back {
+            transform: rotate(0deg);
+        }
+        
+        .technique-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-md);
+            border-right: 3px solid var(--color-accent);
+            transition: var(--transition);
+        }
+        
+        .technique-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .technique-card h4 {
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .quote {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            border-left: 5px solid var(--color-primary);
+        }
+        
+        .quote-text {
+            font-size: 1.2rem;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .quote-decoration {
+            position: absolute;
+            color: var(--color-primary);
+            font-size: 3rem;
+            opacity: 0.3;
+        }
+        
+        .quote-open {
+            top: -10px;
+            right: 20px;
+        }
+        
+        .quote-close {
+            bottom: -30px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="/" class="logo">أثر</a>
+            
+            <button class="mobile-menu-button" aria-label="القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links">
+                <a href="Acceuil.html">الرئيسية</a>
+                <a href="9issas.html">قصص ملهمة</a>
+                <a href="tenmiy.html" class="nav-link active">تنمية الذات</a>
+                <a href="#">فضاء رمضان</a>
+                <a href="#">تواصل معنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero small-hero">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h1 class="hero-title">التفكير الإيجابي</h1>
+                    <p class="hero-description">قوة العقل البناءة في تغيير حياتك وتحقيق النجاح في جميع جوانب الحياة</p>
+                </div>
+            </div>
+            <div class="hero-bg">
+                <div class="bg-shape shape1"></div>
+                <div class="bg-shape shape2"></div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <a href="tenmiye.html" class="back-button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="icon-arrow-back">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    <span>العودة إلى تنمية الذات</span>
+                </a>
+
+                <article class="article-content">
+                    <h3>قوة التفكير الإيجابي</h3>
+                    <p>
+                        يُعتبر التفكير الإيجابي من أقوى الأدوات التي يمكن أن تغير مسار حياتك. فهو ليس مجرد حالة مزاجية عابرة، بل منهج حياة يعزز الصحة النفسية ويحسن الأداء ويساعد في تجاوز التحديات.
+                    </p>
+                    <p>
+                        أظهرت الدراسات العلمية أن التفكير الإيجابي يؤثر بشكل مباشر على الصحة الجسدية والنفسية، حيث يساهم في تقوية جهاز المناعة وتقليل مستويات التوتر والقلق، ويعزز الشعور بالسعادة والرضا.
+                    </p>
+                    
+                    <div class="youtube-embed">
+                        <iframe src="https://www.youtube.com/embed/mt-B_1o3kGE" title="قوة التفكير الإيجابي" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+
+                    <h3>تقنيات تعزيز التفكير الإيجابي</h3>
+                    <p>
+                        هناك العديد من التقنيات والأساليب التي يمكن استخدامها لتعزيز التفكير الإيجابي. فيما يلي بعض التقنيات الأكثر فعالية:
+                    </p>
+                    
+                    <div class="technique-card">
+                        <h4>الامتنان اليومي</h4>
+                        <p>خصص 5 دقائق يوميًا لكتابة ثلاثة أشياء تشعر بالامتنان لها. هذه الممارسة البسيطة تعيد برمجة العقل لاكتشاف الجانب المشرق في كل موقف.</p>
+                    </div>
+                    
+                    <div class="technique-card">
+                        <h4>التأكيدات الإيجابية</h4>
+                        <p>كرر عبارات إيجابية عن نفسك يوميًا مثل: "أنا قادر على تحقيق أهدافي"، "أستحق السعادة والنجاح". تساعد هذه العبارات في بناء الثقة بالنفس.</p>
+                    </div>
+                    
+                    <div class="technique-card">
+                        <h4>إعادة صياغة المواقف</h4>
+                        <p>حوّل المواقف السلبية إلى فرص للتعلم والنمو. عندما تواجه تحديًا، اسأل نفسك: "ما الذي يمكنني تعلمه من هذا الموقف؟" أو "كيف يمكن أن يكون هذا التحدي فرصة للتطور؟"</p>
+                    </div>
+
+                    <div class="youtube-embed">
+                        <iframe src="https://www.youtube.com/embed/qx4kJLrvm6w" title="قوة التفكير الإيجابي" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="key-points">
+                        <h3>خطوات بناء عقلية إيجابية</h3>
+                        <ol>
+                            <li><strong>تحديد الأنماط السلبية في التفكير:</strong> لاحظ متى وكيف تظهر الأفكار السلبية في عقلك.</li>
+                            <li><strong>استبدال الأفكار السلبية بأخرى بناءة:</strong> عند ظهور فكرة سلبية، استبدلها فورًا بفكرة إيجابية.</li>
+                            <li><strong>ممارسة التأمل والوعي الذاتي:</strong> خصص وقتًا يوميًا للتأمل لتهدئة العقل وزيادة الوعي بأفكارك.</li>
+                            <li><strong>بناء بيئة داعمة إيجابية:</strong> أحط نفسك بأشخاص إيجابيين واقرأ كتبًا ملهمة وشاهد محتوى إيجابيًا.</li>
+                            <li><strong>التركيز على الحلول بدل المشاكل:</strong> عند مواجهة تحدٍ، ركز طاقتك على إيجاد حلول بدلاً من التذمر.</li>
+                        </ol>
+                    </div>
+                    
+                    <h3>كتب موصى بها في التفكير الإيجابي</h3>
+                    <div class="book-gallery">
+                        <div class="book-card">
+                            <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=400&h=500" alt="قوة التفكير الإيجابي">
+                            <h4>قوة التفكير الإيجابي</h4>
+                            <p class="author">نورمان فينسنت بيل</p>
+                            <a href="#" class="cta-link">اقرأ الملخص</a>
+                        </div>
+                        
+                        <div class="book-card">
+                            <img src="images/adat.png" alt="Couverture du livre 'العادة السابعة'" class="book-cover">
+                            <h4>العادة السابعة</h4>
+                            <p class="author">ستيفن كوفي</p>
+                            <a href="#" class="cta-link">اقرأ الملخص</a>
+                        </div>
+                        
+                        <div class="book-card">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=400&h=500" alt="عقلية النمو">
+                            <h4>عقلية النمو</h4>
+                            <p class="author">كارول دويك</p>
+                            <a href="#" class="cta-link">اقرأ الملخص</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <div class="quote">
+                    <div class="quote-decoration quote-open">"</div>
+                    <p class="quote-text">العقل مثل المظلة، يعمل بشكل أفضل عندما يكون مفتوحًا</p>
+                    <div class="quote-decoration quote-close">"</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-branding">
+                    <a href="/" class="footer-logo">أثر</a>
+                    <p class="footer-description">دليلك نحو النمو الشخصي وتطوير الذات بمنهجية علمية وتجارب واقعية</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <p class="contact-text">
+                        تواصل معنا عبر 
+                        <a href="mailto:info@athar.com" class="contact-link">info@athar.com</a>
+                    </p>
+                    
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="فيسبوك">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="تويتر">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="إنستغرام">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="mailto:info@athar.com" class="social-icon" aria-label="البريد الإلكتروني">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© <span id="currentYear"></span> أثر. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Script لإضافة السنة الحالية في التذييل
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
